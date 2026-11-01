@@ -1,10 +1,12 @@
 
 import { useMemo, useState } from "react";
+
 import AppHeader from "./components/AppHeader.jsx";
 import HeroSection from "./components/HeroSection.jsx";
 import MountainForm from "./components/MountainForm.jsx";
 import MountainList from "./components/MountainList.jsx";
 import SummaryCard from "./components/SummaryCard.jsx";
+import HikingArticles from "./components/HikingArticles.jsx";
 
 const dataGunungAwal = [
   {
@@ -45,9 +47,7 @@ export default function App() {
     }
 
     return daftarGunung.filter((gunung) =>
-      `${gunung.nama} ${gunung.lokasi}`
-        .toLowerCase()
-        .includes(kata)
+      `${gunung.nama} ${gunung.lokasi}`.toLowerCase().includes(kata)
     );
   }, [daftarGunung, kataKunci]);
 
@@ -88,7 +88,9 @@ export default function App() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Jelajahi destinasi</p>
+
               <h2 id="daftar-gunung-heading">Daftar Gunung</h2>
+
               <p className="muted">
                 Cari gunung berdasarkan nama atau lokasi.
               </p>
@@ -126,8 +128,12 @@ export default function App() {
 
         <MountainForm onTambah={tambahGunung} />
 
+        {/* Fitur Tugas 7: Konsumsi API */}
+        <HikingArticles />
+
         <footer className="footer">
           <span>© 2026 HikeMate</span>
+
           <span>
             Sistem Informasi Pendakian dan Kegiatan Pencinta Alam
           </span>
